@@ -1,0 +1,51 @@
+2024-06-07 10:33:52,796: root: INFO: MLTrader : Executing the initialize lifecycle method
+2024-06-07 10:33:53,442: root: INFO: Current backtesting datetime 2020-01-02 08:30:00-05:00
+2024-06-07 10:33:53,443: root: INFO: MLTrader : Executing the before_market_opens lifecycle method
+2024-06-07 10:33:53,443: root: INFO: Current backtesting datetime 2020-01-02 09:30:00-05:00
+2024-06-07 10:33:53,443: root: INFO: MLTrader : Executing the before_starting_trading lifecycle method
+2024-06-07 10:33:53,444: root: INFO: [34mMLTrader : Executing the on_trading_iteration lifecycle method at 2024-06-07 10:33:53[0m
+2024-06-07 10:33:53,444: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-06-07 10:33:53,448: root: WARNING: quote is not implemented for YahooData, but USD was passed as the quote
+2024-06-07 10:33:55,030: root: ERROR: invalid timeframe: day
+2024-06-07 10:33:55,033: root: ERROR: Traceback (most recent call last):
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/strategies/strategy_executor.py", line 829, in run
+    self._run_trading_session()
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/strategies/strategy_executor.py", line 780, in _run_trading_session
+    self._on_trading_iteration()
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/strategies/strategy_executor.py", line 274, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/strategies/strategy_executor.py", line 298, in func_output
+    result = func_input(self, *args, **kwargs)
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/strategies/strategy_executor.py", line 87, in func_output
+    return func_input(self, *args, **kwargs)
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/strategies/strategy_executor.py", line 378, in _on_trading_iteration
+    on_trading_iteration()
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/tools/decorators.py", line 62, in func_output
+    frame, result = call_function_get_frame(func_input, *args, **kwargs)
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/lumibot/tools/decorators.py", line 30, in call_function_get_frame
+    result = func(*args, **kwargs)
+  File "/Users/admin/Desktop/Trading Bot/tradingbot.py", line 79, in on_trading_iteration
+    self.fetch_data()
+  File "/Users/admin/Desktop/Trading Bot/tradingbot.py", line 43, in fetch_data
+    bars = self.api.get_bars(self.symbol, 'day', start=start_date.isoformat(), end=end_date.isoformat()).df
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/alpaca_trade_api/rest.py", line 735, in get_bars
+    bars = list(self.get_bars_iter(symbol,
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/alpaca_trade_api/rest.py", line 718, in get_bars_iter
+    for bar in bars:
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/alpaca_trade_api/rest.py", line 594, in _data_get
+    resp = self.data_get(path, data=data, feed=feed,
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/alpaca_trade_api/rest.py", line 274, in data_get
+    return self._request(
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/alpaca_trade_api/rest.py", line 222, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/alpaca_trade_api/rest.py", line 248, in _one_request
+    raise_api_error(resp, http_error)
+  File "/Users/admin/.pyenv/versions/3.10.13/lib/python3.10/site-packages/alpaca_trade_api/rest.py", line 83, in raise_api_error
+    raise APIError(error, http_error) from None
+alpaca_trade_api.rest.APIError: invalid timeframe: day
+
+2024-06-07 10:33:55,033: root: INFO: MLTrader : Executing the on_bot_crash event method
+2024-06-07 10:33:55,035: root: INFO: Backtesting finished
+2024-06-07 10:33:55,036: root: WARNING: Cannot plot returns because the strategy returns are missing
+2024-06-07 10:33:55,066: root: WARNING: Cannot create a tearsheet because the strategy returns are missing
+2024-06-07 10:33:55,066: backtest_stats: INFO: Backtest took 0:00:02.272112 for a speed of 0.000
